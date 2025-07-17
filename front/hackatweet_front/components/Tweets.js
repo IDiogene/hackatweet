@@ -10,6 +10,11 @@ import styles from "../styles/Home.module.css";
 
 const Tweets = ({index, author, username, date, TweetText }) => {
   const dispatch = useDispatch();
+
+  const [usernameConnected, setUsernameConnected] = useState(username);
+
+  const user = useSelector((state) => state.user);
+
   return (
     <div key={index} className={styles.soloTweet}>
       <div className={styles.nameUsernameDate}>
@@ -25,6 +30,9 @@ const Tweets = ({index, author, username, date, TweetText }) => {
         <h3 className={styles.date}>{date}</h3>
       </div>
       <p className={styles.TweetText}>{TweetText}</p>
+      {
+        (user.username === usernameConnected)? <button>Pouet</button> : null
+      }
     </div>
   );
 };
