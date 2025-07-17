@@ -45,6 +45,8 @@ const Sign = ({close, type}) => {
 
     }
 
+    
+
     return (
         <div className={styles.container}>
             <button className={styles.close} onClick={() => close()}>X</button>
