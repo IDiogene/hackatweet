@@ -6,7 +6,6 @@ var logger = require("morgan");
 const mongoose = require("mongoose");
 
 
-
 require("./models/connexion");
 
 var indexRouter = require("./routes/index");
@@ -23,6 +22,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/tweets", tweetRouter);
+app.use("/tweet", tweetRouter);
 
 module.exports = app;

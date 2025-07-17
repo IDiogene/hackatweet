@@ -8,6 +8,10 @@
     width: 30vw;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 40%;
+
 }
 
 .input {
@@ -18,5 +22,13 @@
 }
 
 .signin {
-    
+    margin-top: 20px;
+    height: 40px;
+    width: 50%;
+    border-radius: 20px;
+}
+
+.close {
+    position: relative;
+    left: 45%;
 }
