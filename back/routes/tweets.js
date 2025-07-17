@@ -30,7 +30,8 @@ router.get("/", (req, res) => {
 });
 
 router.delete('/delete', async(req, res) => {
-  Tweet.deleteOne({})
+  const data = await Tweet.deleteOne({_id: req.body.id})
+  res.json({result : true})
 })
 
 module.exports = router;
