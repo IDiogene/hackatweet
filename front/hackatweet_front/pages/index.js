@@ -3,7 +3,7 @@ import Login from "../components/Login";
 
 function Index() {
   console.log("Index chargé !");
-  return <Login />;
+  return <Home />;
 }
 
 export default Index;

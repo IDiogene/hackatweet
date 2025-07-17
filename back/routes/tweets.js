@@ -19,7 +19,14 @@ router.post("/newTweet", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  res.json({ result: true });
+  Tweet.find()
+    .then((tweets) => {
+      res.json({ result: true, tweets: tweets });
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json({ error: "et nooooooon try again" });
+    });
 });
 
 module.exports = router;
