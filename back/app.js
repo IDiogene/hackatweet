@@ -4,10 +4,8 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const mongoose = require("mongoose");
-mongoose.connect(`${CONNECTION_STRING}`, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+
+
 
 require("./models/connexion");
 
