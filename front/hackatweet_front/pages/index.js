@@ -1,6 +1,7 @@
-import Home from '../components/Home';
+import Home from "../components/Home";
 
 function Index() {
+  console.log("Index chargé !");
   return <Home />;
 }
 
