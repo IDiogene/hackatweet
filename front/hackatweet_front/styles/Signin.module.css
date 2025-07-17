@@ -1,0 +1,22 @@
+.container {
+    padding: 20px;
+    background-color: rgb(46, 41, 41);
+    border: 5px solid black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    margin: 5px;
+    border-radius: 5px;
+    height: 30px;
+    width: 90%;
+}
+
+.signin {
+    
+}
