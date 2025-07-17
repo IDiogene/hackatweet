@@ -52,23 +52,15 @@ function Home() {
             </div>
           </div>
           <div className={styles.containerTweets}>
-            {tweetsData.map((tweet, index) => (
-              <div key={index} className={styles.soloTweet}>
-                <div className={styles.nameUsernameDate}>
-                  <img
-                    className={styles.Avatar}
-                    src="photo-profil.JPG"
-                    alt="Avatar"
-                    width={50}
-                    height={50}
-                  />
-                  <h1 className={styles.authorName}>{tweet.author} :</h1>
-                  <h2 className={styles.username}> {tweet.username}</h2>
-                  <h3 className={styles.date}>{tweet.date}</h3>
-                </div>
-                <p className={styles.TweetText}>{tweet.TweetText}</p>
-              </div>
-            ))}
+            {tweetsData.map((tweet, index) => {
+              return <Tweets
+                  key={index}
+                  author={tweet.author}
+                  username={tweet.username}
+                  date={tweet.date}
+                  TweetText={tweet.TweetText}
+                />
+            })}
           </div>
         </div>
 

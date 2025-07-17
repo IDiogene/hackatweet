@@ -6,7 +6,6 @@ var logger = require("morgan");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-
 require("./models/connexion");
 
 var indexRouter = require("./routes/index");
