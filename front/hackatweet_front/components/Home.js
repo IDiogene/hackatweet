@@ -59,6 +59,7 @@ function Home() {
                   username={tweet.username}
                   date={tweet.date}
                   TweetText={tweet.TweetText}
+                  id={tweet._id}
                 />
             })}
           </div>

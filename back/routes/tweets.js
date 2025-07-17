@@ -29,4 +29,8 @@ router.get("/", (req, res) => {
     });
 });
 
+router.delete('/delete', async(req, res) => {
+  Tweet.deleteOne({})
+})
+
 module.exports = router;
