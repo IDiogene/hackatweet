@@ -53,10 +53,20 @@ function Home() {
           </div>
           <div className={styles.containerTweets}>
             {tweetsData.map((tweet, index) => (
-              <div key={index}>
-                <p>
-                  {tweet.author} : {tweet.TweetText}
-                </p>
+              <div key={index} className={styles.soloTweet}>
+                <div className={styles.nameUsernameDate}>
+                  <img
+                    className={styles.Avatar}
+                    src="photo-profil.JPG"
+                    alt="Avatar"
+                    width={50}
+                    height={50}
+                  />
+                  <h1 className={styles.authorName}>{tweet.author} :</h1>
+                  <h2 className={styles.username}> {tweet.username}</h2>
+                  <h3 className={styles.date}>{tweet.date}</h3>
+                </div>
+                <p className={styles.TweetText}>{tweet.TweetText}</p>
               </div>
             ))}
           </div>
