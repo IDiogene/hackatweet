@@ -4,10 +4,6 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const mongoose = require("mongoose");
-mongoose.connect(`${CONNECTION_STRING}`, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
 
 require("./models/connexion");
 
@@ -25,6 +21,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/tweets", tweetRouter);
+app.use("/tweet", tweetRouter);
 
 module.exports = app;
