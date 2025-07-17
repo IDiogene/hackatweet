@@ -1,3 +1,15 @@
+.body {
+  background-color: #151f2b;
+}
+
+.partLeft {
+  border-color: red;
+}
+
+.logoTweeter {
+  rotate: 180deg;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -17,6 +29,8 @@
   text-decoration: none;
 }
 
-.title a:hover, .title a:focus, .title a:active {
+.title a:hover,
+.title a:focus,
+.title a:active {
   text-decoration: underline;
 }

@@ -7,14 +7,15 @@ const { checkBody } = require("../modules/checkBody");
 const uid2 = require("uid2");
 const bcrypt = require("bcrypt");
 
-router.post("/signup", (req, res) => {
+router.post("/signup", async (req, res) => {
   if (!checkBody(req.body, ["username", "password"])) {
     res.json({ result: false, error: "Missing or empty fields" });
     return;
   }
+  try {
+    // Check if the user has not already been registered
+    const data = await User.findOne({ username: req.body.username });
 
-  // Check if the user has not already been registered
-  User.findOne({ username: req.body.username }).then((data) => {
     if (data === null) {
       const hash = bcrypt.hashSync(req.body.password, 10);
 
@@ -32,7 +33,9 @@ router.post("/signup", (req, res) => {
       // User already exists in database
       res.json({ result: false, error: "User already exists" });
     }
-  });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 router.post("/signin", (req, res) => {

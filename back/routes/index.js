@@ -1,9 +1,17 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
+const fetch = require("node-fetch");
+const Tweet = require("../models/tweets");
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get("/Tweets", (req, res) => {
+  Tweet.find()
+    .then((tweets) => {
+      res.json({ Tweets: tweets });
+    })
+    .catch((error) => {
+      console.error("Erreur lors de la récupération des tweets :", error);
+      res.status(500).json({ Tweets: [] });
+    });
 });
 
 module.exports = router;
