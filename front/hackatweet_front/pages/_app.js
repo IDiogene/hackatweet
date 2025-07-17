@@ -3,14 +3,14 @@ import Head from "next/head";
 
 import { Provider } from "react-redux";
 
-import counter from "../reducers/user";
+import user from "../reducers/user";
 import { persistStore, persistReducer } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import storage from "redux-persist/lib/storage";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
-const reducers = combineReducers({ counter });
-const persistConfig = { key: "applicationName", storage };
+const reducers = combineReducers({ user });
+const persistConfig = { key: "hackatweeeeeet", storage };
 
 const store = configureStore({
   reducer: persistReducer(persistConfig, reducers),

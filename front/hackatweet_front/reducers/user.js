@@ -1,20 +1,26 @@
 
 import { createSlice } from '@reduxjs/toolkit';
+
 const initialState = {
-value: 0,
+        token: '',
+        connected: false,
+        username: '',
 };
 
-export const counterSlice = createSlice({
-name: 'counter',
+export const userSlice = createSlice({
+name: 'user',
  initialState,
-reducers: {
-addToCounter: (state, action) => {
-state.value = Math.max(state.value + action.payload, 0)
- },
-},
+
+    reducers: {
+        connect: (state, action) => {
+         state.token = action.payload.token
+         state.connected = action.payload.connected;
+         state.username = action.payload.username;
+        },
+    },
 });
-export const { addToCounter } = counterSlice.actions;
-export default counterSlice.reducer;
+export const { connect } = userSlice.actions;
+export default userSlice.reducer;
 
 /*
 // partie composants : 
