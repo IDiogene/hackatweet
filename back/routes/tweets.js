@@ -35,5 +35,30 @@ router.delete('/delete', async(req, res) => {
 })
 
 
+router.patch('/like', async(req, res) => {
+  try {
+  const data = await Tweet.findOne({_id: req.body.id})
+  console.log(data.Like)
+
+  if (data.Like.find(user => user === req.body.username)) {
+    // retirer un like par username
+    const newArrDel = data.Like.filter(user => user !== req.body.username)
+    const maj = await Tweet.updateOne({_id : req.body.id}, {Like : newArrDel})
+    res.json({result : true})
+
+  } else {
+    // ajouter un like par username
+    const newArrAdd = [...data.Like, req.body.username]
+    const maj = await Tweet.updateOne({_id : req.body.id}, {Like : newArrAdd})
+    res.json({result : true})
+
+  }} catch (error) {
+
+    console.log(error)
+    res.json(error)
+    
+  }
+})
+
 
 module.exports = router;

@@ -8,43 +8,38 @@ import styles from "../styles/Home.module.css";
 // import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 // import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
-const url = 'http://localhost:3000/users'
+const url = 'http://localhost:3000/tweet'
 
-const Tweets = ({index, author, username, date, TweetText, id, maj }) => {
+const Tweets = ({index, author, username, date, TweetText, id, maj, like }) => {
   const dispatch = useDispatch();
+  const myUsername = useSelector((state) => state.user.username); 
   
 
   const [usernameConnected, setUsernameConnected] = useState(username);
-  const [tweetLikedby, setTweetLikedby ] = useState([]);
+  
 
 
-  // const handleLike = async() => {
-  //   useEffect(() => {
-  //   fetch("http://localhost:3000/tweet/")
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     setTweetLikedby(data.username)
-  //   }) 
-  // }); }
 
  const handleLike = async() => {
-        const resp = await fetch(`http://localhost:3000/tweet/`, {
-            method: 'POST',
+        const resp = await fetch(`${url}/like`, {
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                username: username,
+                username: myUsername,
+                id : id
             }),
         });
         const data = await resp.json();
         console.log(data);
-          // setTweetLikedby(username);
+        maj()
+
         }
  
 
   const deleteTweet = async() => {
-    const resp = await fetch(`http://localhost:3000/tweet/delete`, {
+    const resp = await fetch(`${url}/delete`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -74,7 +69,7 @@ const Tweets = ({index, author, username, date, TweetText, id, maj }) => {
         <h3 className={styles.date}>{date}</h3>
       </div>
       <p className={styles.TweetText}>{TweetText}</p>
-      <button className={styles.btnLike} onClick={() => handleLike()}>Lovilove</button>
+      <button className={styles.btnLike} onClick={() => handleLike()} style={like.find(user => user === myUsername) ? {backgroundColor:'green'} : null}>{like.length}Lovilove</button>
       {
         (user.username === usernameConnected)? <button onClick={() => deleteTweet()}>Pouet</button> : null
       }

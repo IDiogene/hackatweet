@@ -37,7 +37,8 @@ function Home() {
       .then((data) => {
         setTweetsData(data.tweets);
       });
-  }, []);
+  };
+
 
   return (
     
@@ -91,6 +92,7 @@ function Home() {
                   date={tweet.date}
                   TweetText={tweet.TweetText}
                   id={tweet._id}
+                  like={tweet.Like}
                 />
             })}
           </div>
