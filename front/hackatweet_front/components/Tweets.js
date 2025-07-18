@@ -10,6 +10,7 @@ import DeleteIcon from '../icons/circle-xmark-solid.svg'
 import styles from "../styles/Tweets.module.css";
 
 
+
 const url = 'http://localhost:3000/tweet'
 
 const Tweets = ({index, author, username, date, TweetText, id, maj, like }) => {
@@ -95,7 +96,7 @@ const Tweets = ({index, author, username, date, TweetText, id, maj, like }) => {
         <h2 className={styles.username}> {username}</h2>
         <h3 className={styles.date}>{dateFormated()}</h3>
       </div>
-      {modify ? <textarea name="" id="" onChange={(e) => setText(e.target.value)}>{text}</textarea> : <p className={styles.TweetText}>{TweetText}</p>}
+      {modify ? <textarea name="" id="" onChange={(e) => setText(e.target.value)}>{TweetText}</textarea> : <p className={styles.TweetText}>{TweetText}</p>}
       
       <div className={styles.divLikeCount}>
       <LikeIcon
@@ -125,7 +126,7 @@ const Tweets = ({index, author, username, date, TweetText, id, maj, like }) => {
         width={24}
         height={25}
         className={styles.btnModify}
-        onClick={() => setModify(!modify)}
+        onClick={() => {setModify(!modify); setText(TweetText)}}
 
       />}</div> : null}
       </div>

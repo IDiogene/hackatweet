@@ -48,10 +48,14 @@ function Home() {
 
 
   useEffect(() => {
-    setHashtag(tweetsData
-        .map((tweet => tweet.TweetText.match(hashtagPatern) ? tweet.TweetText.match(hashtagPatern) : null))
-        .filter(match => match !== null)
-      )
+    const allHashtags = tweetsData
+      .map(tweet => tweet.TweetText.match(hashtagPatern)) 
+      .filter(match => match !== null)                    
+      .flat();                                            
+      const uniqueHashtags = [...new Set(allHashtags)];     
+
+      setHashtag(uniqueHashtags);
+      
        const intervalId = setInterval(() => {
           fetchTweet()
 
@@ -73,9 +77,26 @@ function Home() {
             className={styles.logoTweeter}
             src="logo-twitter.png"
             alt="Logo"
-            width={80}
-            height={80}
+            width={60}
+            height={60}
           />
+        
+          <div className={styles.divUserLeftBottom}>
+          <div className={styles.LeftUserDiv45}>
+          <img
+          className={styles.Avatar}
+          src="photo-profil.JPG"
+          alt="Avatar"
+          width={30}
+          height={30}
+        />
+          <div className={styles.divDisplayAuthorAndUser}>
+            <h1 className={styles.DisplayauthorName}>{user.author}: </h1>
+            <h2 className={styles.Displayusername}>@{user.username}</h2>
+          </div>
+          </div>
+          <div className={styles.logoutBtn}>Logout</div>
+          </div>
         </div>
 
         <div className={styles.partCenter}>
@@ -103,6 +124,7 @@ function Home() {
               if (
                 tweet.username.match(searchPatern) || 
                 tweet.TweetText.match(searchPatern) ||
+                tweet.author.match(searchPatern) ||
                 search === ''            
               ) {
               return <Tweets
@@ -122,6 +144,8 @@ function Home() {
         </div>
 
         <div className={styles.partRight}>
+          <div className= {styles.divHashtag}>
+          
           <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="chercher un... hashtags? nom? text?..." className={styles.searchInput}/>
           {hashtag.map(hashtag => (
             <p 
@@ -132,7 +156,7 @@ function Home() {
             </p>
             
             ))}
-        
+          </div>
         </div>
 
       </main>

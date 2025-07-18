@@ -77,10 +77,11 @@
   .soloTweet {
     border: 0.5px solid rgb(255, 255, 255, 0.3);
     color: white;
-    width: 95%;
+    width: 100%;
     align-self: center;
     min-height: 25%;
-    margin: 2.5%;
+    /* margin: 2.5%; */
+    padding: 2.5%;
     box-shadow: 3px 3px 3px rgb(255, 255, 255, 0.1);
     transition: 0.25s;
   }
