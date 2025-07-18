@@ -90,7 +90,8 @@
 }
 
 .btnTweet {
-  height: 3%;
+  height: 3vh;
+  margin: 10px;
 }
 
 .searchHashtag {
@@ -130,4 +131,28 @@
 .title a:focus,
 .title a:active {
   text-decoration: underline;
+}
+
+.divInputTweet {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 2px;
+}
+
+.divTweetAndCount{
+  position: absolute;
+  left:26vw;
+  top:5vh;
+  width: 40vw;
+  height: 20vh;
+}
+
+.inputTweet{
+  width: 80%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  resize: vertical;
 }

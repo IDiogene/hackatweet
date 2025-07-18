@@ -10,7 +10,7 @@ import styles from "../styles/Home.module.css";
 
 const url = 'http://localhost:3000/users'
 
-const Tweets = ({index, author, username, date, TweetText, id }) => {
+const Tweets = ({index, author, username, date, TweetText, id, maj }) => {
   const dispatch = useDispatch();
 
   const [usernameConnected, setUsernameConnected] = useState(username);
@@ -27,6 +27,7 @@ const Tweets = ({index, author, username, date, TweetText, id }) => {
             })},)
     const data = await resp.json()
     console.log(data)
+    maj()
   }
 
   const user = useSelector((state) => state.user);
