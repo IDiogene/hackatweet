@@ -1,12 +1,14 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-// import { addBookmark, removeBookmark } from "../reducers/bookmarks";
-// import {} from "../reducers/hiddenArticles";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-// import { faBookmark } from "@fortawesome/free-solid-svg-icons";
-// import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import LikeIcon from '../icons/heart-solid.svg'
+import ModifyIcon from '../icons/gears-solid.svg'
+import CheckIcon from '../icons/check-solid.svg'
+import DeleteIcon from '../icons/circle-xmark-solid.svg'
+
+
+import styles from "../styles/Tweets.module.css";
+
 
 const url = 'http://localhost:3000/tweet'
 
@@ -77,6 +79,8 @@ const Tweets = ({index, author, username, date, TweetText, id, maj, like }) => {
 
   const user = useSelector((state) => state.user);
 
+  const btnModify = modify ? <textarea name="" id="" onChange={(e) => setText(e.target.value)}>{text}</textarea> : <p className={styles.TweetText}>{TweetText}</p>;
+
   return (
     <div key={index} className={styles.soloTweet}>
       <div className={styles.nameUsernameDate}>
@@ -92,13 +96,55 @@ const Tweets = ({index, author, username, date, TweetText, id, maj, like }) => {
         <h3 className={styles.date}>{date}</h3>
       </div>
       {modify ? <textarea name="" id="" onChange={(e) => setText(e.target.value)}>{text}</textarea> : <p className={styles.TweetText}>{TweetText}</p>}
-      <button className={styles.btnLike} onClick={() => handleLike()} style={like.find(user => user === myUsername) ? {backgroundColor:'green'} : null}>{like.length}Lovilove</button>
-     { myUsername === username ? <button className={styles.btnLike} onClick={() => modifyTweet()} >{modify ? 'Valider' : 'Modifier'}</button> : null}
+      
+      <div className={styles.divLikeCount}>
+      <LikeIcon
+        src="/heart-solid.png"
+        alt="Like"
+        width={15}
+        height={15}
+        className={styles.btnLike}
+        onClick={() => handleLike()}
+        style={like.find(user => user === myUsername) ? {fill:'red'} : null}
+      />
+      <span className={styles.counterLike}>{like.length}</span>
+      
+      <div className={styles.divBtnModify}>
+     { myUsername === username ? <div
+        onClick={() => modifyTweet()} >{modify ? 
+     <CheckIcon 
+     src="/check-solid.svg"
+        alt="CheckText"
+        width={17}
+        height={17}
+     className={styles.btnCheck}
+     /> : 
+      <ModifyIcon 
+        src="/gears-solid.svg"
+        alt="ModifyText"
+        width={17}
+        height={18}
+        className={styles.btnModify}
+        onClick={() => setModify(!modify)}
+
+      />}</div> : null}
+      </div>
       {
-        (user.username === usernameConnected)? <button onClick={() => deleteTweet()}>Pouet</button> : null
+        (user.username === usernameConnected)? <div onClick={() => deleteTweet()}>
+          <DeleteIcon
+          src="/circle-xmark-solid.svg"
+          alt="DeleteTweet"
+          width={15}
+          height={15}
+          className={styles.btnDelete}
+          onClick={() => setModify(!modify)}
+        />
+        </div> : null
       }
+      </div>
     </div>
   );
 };
+
 
 export default Tweets;
