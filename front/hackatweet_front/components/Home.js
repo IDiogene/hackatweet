@@ -33,6 +33,7 @@ function Home() {
       }),
     });
     const data = await resp.json();
+
     fetchTweet()
     setNewTweet("");
   };
@@ -53,7 +54,7 @@ function Home() {
       )
        const intervalId = setInterval(() => {
           fetchTweet()
-          console.log('interval')
+
           }, 1000);
 
         return () => clearInterval(intervalId);   
@@ -92,7 +93,7 @@ function Home() {
               </div>
               <div className={styles.CountCaract} style={{ color:"white"}}>{newTweet.length}/280</div>
                <p style={{color: "white", display:"flex", justifyContent:'center'}}>Tweet</p>
-               
+
           <div className={styles.containerTweets}>
            
             {[...tweetsData].reverse().map((tweet, index) => {

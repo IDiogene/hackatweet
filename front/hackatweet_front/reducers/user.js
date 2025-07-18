@@ -5,6 +5,7 @@ const initialState = {
         token: '',
         connected: false,
         username: '',
+        author: '',
 };
 
 export const userSlice = createSlice({
@@ -16,6 +17,7 @@ name: 'user',
          state.token = action.payload.token
          state.connected = action.payload.connected;
          state.username = action.payload.username;
+         state.author = action.payload.author;
         },
     },
 });

@@ -25,6 +25,7 @@ const Sign = ({close, type}) => {
             },
             body: JSON.stringify({
                 username: userName,
+                author: name,
                 password: password,
                 ...(type ? {} : { name: name }),
             }),
@@ -36,6 +37,7 @@ const Sign = ({close, type}) => {
                 token: data.token,
                 connected: true,
                 username: userName,
+                author: data.author
             }));
             close(false);
             router.push('/home');
