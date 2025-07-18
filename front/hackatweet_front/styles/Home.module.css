@@ -23,11 +23,16 @@
 /* Left Infos User */
 
 .partLeft {
+  display: flex;
   grid-column-start: 1;
   grid-column-end: 3;
   height: 100vh;
-  align-items: center;
+  justify-content: center;
   border: 0.5px solid rgb(255, 255, 255, 0.3);
+}
+
+.logoTweeter{
+  margin-top: 10px;
 }
 
 
@@ -49,85 +54,25 @@
   align-items: center;
 }
 
-/* .Avatar {
-  border-radius: 50px;
-  margin: 15px;
-}
-
-.authorName {
-  font-size: 12px;
-  margin: 5px;
-}
-
-.username {
-  font-size: 10px;
-  margin: 5px;
-}
-.date {
-  font-size: 9px;
-  margin: 5px;
-}
-
-.TweetText {
-  font-size: 10px;
-  justify-self: center;
-  align-self: center;
-} */
-
-/* .divLikeCount{
-  display: flex;
-  align-items: center;
-} */
-
-/* .btnLike{
-  fill: white;
-  margin-top: 2px;;
-  background-color: none;
-}
-
-.divBtnModify{
-  display: flex;
-  align-items: center;
-}
-
-.btnModify{
-  margin-left: 5px;
-  fill: white;
-  background-color: none;
-}
-
-.btnCheck{
-  margin-left: 5px;
-  fill: white;
-  background-color: none;
-} */
-
-/* .btnDelete{
-  margin-left: 5px;
-  fill: white;
-  background-color: none;
-}
-
-.counterLike{
-  margin-left: 5px;
-}
-
-.soloTweet {
-  border: 0.5px solid rgb(255, 255, 255, 0.3);
-  color: white;
-  width: 80%;
-  align-self: center;
-  height: 20%;
-  margin: 7%;
-} */
-
 .Hashtag {
   color: white;
 }
 
+.divCountandBtn{
+  margin-right: 50px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+
+}
+
 .btnTweet {
-  height: 3vh;
+  height: 3.5vh;
+  width: 8vw;
   margin: 10px;
+  background-color: #3e9af0;
+  color: white;
+  border-radius: 15px;
 }
 
 .searchHashtag {
@@ -174,6 +119,8 @@
   align-items: center;
   width: 100%;
   padding: 2px;
+  justify-content: center;
+  
 }
 
 .divTweetAndCount{
@@ -181,6 +128,8 @@
   top:5vh;
   width: 58vw;
   height: 20vh;
+  font-size: 12px;
+  
 }
 
 .inputTweet{
@@ -190,6 +139,12 @@
   overflow: hidden;
   border-radius: 10px;
   resize: vertical;
+  background-color: #151f2b;
+  font-size: 15px;
+  padding-top: 15px;
+  padding-left: 15px;
+  color: white;
+  
 }
 
 .partRight{
@@ -235,24 +190,23 @@
 }
 
 .searchInput:hover {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255, 0.3);
   color: rgb(74, 0, 43);
   cursor: pointer;
   scale: 0.95;
-  box-shadow: 0px 0px 0px rgb(0, 0, 0);
+  box-shadow: 0px 0px 0px rgb(0, 0, 0, 0.3);
 }
 
 .searchInput:focus {
   outline: none;
-  box-shadow: 0px 0px 0px rgb(0, 0, 0);
+  box-shadow: 0px 0px 0px rgb(0, 0, 0, 0.3);
 }
 
 .containerTweets {
-
   margin-top: 25px;
   width: 100%;  
   top: 30%;   
   height: 80vh;       
   overflow: auto;    
-  border: 1px solid #ccc;
+  border: 1px solid rgb(255, 255, 255, 0.3);
 }

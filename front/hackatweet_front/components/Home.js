@@ -77,8 +77,8 @@ function Home() {
             className={styles.logoTweeter}
             src="logo-twitter.png"
             alt="Logo"
-            width={100}
-            height={100}
+            width={80}
+            height={80}
           />
         </div>
 
@@ -86,18 +86,21 @@ function Home() {
           <div className={styles.divHashtagsSearch}>
             <div className={styles.divTweetAndCount}>
               <div className={styles.divInputTweet}>
-              <textarea type="text" cols="50" className={styles.inputTweet} value={newTweet} onChange={(e) => { newTweet.length < 280 ? setNewTweet(e.target.value) : null}} />
-              <button
-                className={styles.btnTweet}
-                id="register"
-                onClick={() => addTweet()}
-              >
-                Tweet
-              </button>
+              <textarea type="text" cols="50" placeholder="What's up?" className={styles.inputTweet} value={newTweet} onChange={(e) => { newTweet.length < 280 ? setNewTweet(e.target.value) : null}} />
+              
               </div>
-              <div className={styles.CountCaract} style={{ color:"white"}}>{newTweet.length}/280</div>
-               <p style={{color: "white", display:"flex", justifyContent:'center'}}>Tweet</p>
-
+              <div className={styles.divCountandBtn}>
+                <div className={styles.CountCaract} style={{ color:"white"}}>{newTweet.length}/280</div>
+                <button
+                  className={styles.btnTweet}
+                  id="register"
+                  onClick={() => addTweet()}
+                >
+                  Tweet
+                </button>      
+              </div>
+              <p style={{color: "white", display:"flex", justifyContent:'center'}}>Tweet</p>
+               
           <div className={styles.containerTweets}>
            
             {[...tweetsData].reverse().map((tweet, index) => {
