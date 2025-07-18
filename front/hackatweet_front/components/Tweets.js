@@ -18,8 +18,6 @@ const Tweets = ({index, author, username, date, TweetText, id, maj, like }) => {
   const [text, setText] = useState(TweetText)
   const [modify, setModify] = useState(false)
   
-
-  const [usernameConnected, setUsernameConnected] = useState(username);
   const dateFormated = () => {
     const newDate = new Date(date)
     return `à tweeté le : ${newDate.getDate()}/${newDate.getMonth()+1}/${newDate.getFullYear()}`
@@ -132,7 +130,7 @@ const Tweets = ({index, author, username, date, TweetText, id, maj, like }) => {
       />}</div> : null}
       </div>
       {
-        (user.username === usernameConnected)? <div onClick={() => deleteTweet()}>
+        (myUsername === username)? <div onClick={() => deleteTweet()}>
           <DeleteIcon
           src="/circle-xmark-solid.svg"
           alt="DeleteTweet"
