@@ -56,7 +56,17 @@ router.patch('/like', async(req, res) => {
 
     console.log(error)
     res.json(error)
-    
+
+  }
+})
+
+router.patch('/modify' , async(req, res) => {
+  try {
+  const data = await Tweet.updateOne({_id: req.body.id}, {TweetText : req.body.newText} )
+  res.json({result : true})
+
+  } catch (error) {
+    res.json({error})
   }
 })
 

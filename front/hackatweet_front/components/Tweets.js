@@ -13,6 +13,8 @@ const url = 'http://localhost:3000/tweet'
 const Tweets = ({index, author, username, date, TweetText, id, maj, like }) => {
   const dispatch = useDispatch();
   const myUsername = useSelector((state) => state.user.username); 
+  const [text, setText] = useState(TweetText)
+  const [modify, setModify] = useState(false)
   
 
   const [usernameConnected, setUsernameConnected] = useState(username);
@@ -52,6 +54,27 @@ const Tweets = ({index, author, username, date, TweetText, id, maj, like }) => {
     maj()
   }
 
+  const modifyTweet = async() => {
+    if (modify) {
+    const resp = await fetch(`${url}/modify`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                newText: text,
+                id : id
+            }),
+        });
+        const data = await resp.json();
+        console.log(data);
+        maj()
+        setModify(false)
+    } else {
+      setModify(true)
+    }
+  }
+
   const user = useSelector((state) => state.user);
 
   return (
@@ -68,8 +91,9 @@ const Tweets = ({index, author, username, date, TweetText, id, maj, like }) => {
         <h2 className={styles.username}> {username}</h2>
         <h3 className={styles.date}>{date}</h3>
       </div>
-      <p className={styles.TweetText}>{TweetText}</p>
+      {modify ? <textarea name="" id="" onChange={(e) => setText(e.target.value)}>{text}</textarea> : <p className={styles.TweetText}>{TweetText}</p>}
       <button className={styles.btnLike} onClick={() => handleLike()} style={like.find(user => user === myUsername) ? {backgroundColor:'green'} : null}>{like.length}Lovilove</button>
+     { myUsername === username ? <button className={styles.btnLike} onClick={() => modifyTweet()} >{modify ? 'Valider' : 'Modifier'}</button> : null}
       {
         (user.username === usernameConnected)? <button onClick={() => deleteTweet()}>Pouet</button> : null
       }

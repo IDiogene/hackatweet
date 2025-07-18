@@ -39,6 +39,10 @@ function Home() {
       });
   };
 
+  useEffect(() => {
+    fetchTweet()
+  }, [])
+
 
   return (
     
