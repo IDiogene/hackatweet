@@ -12,61 +12,59 @@
   }
   
   .authorName {
-    font-size: 12px;
+    font-size: 20px;
     margin: 5px;
   }
   
   .username {
-    font-size: 15px;
+    font-size: 10px;
     margin: 5px;
     color: #778293;
   }
   .date {
-    font-size: 9px;
+    font-size: 20px;
     margin: 5px;
-    margin-left: 17px;
-    color: #778293;
-    font-size: 15px;
   }
   
   .TweetText {
     font-size: 10px;
-    margin-left: 15px;
-    justify-self: left;
-    align-self: right;
-    font-size: 15px;
+    justify-self: center;
+    align-self: center;
   }
 
   .divLikeCount{
+    margin: 10px;
+
     display: flex;
     align-items: center;
   }
 
   .btnLike{
     fill: white;
-    margin: 5px;
+    margin-top: 2px;;
     background-color: none;
   }
   
   .divBtnModify{
     display: flex;
     align-items: center;
+
   }
   
   .btnModify{
-    margin: 5px;
+    margin-left: 5px;
     fill: white;
     background-color: none;
   }
   
   .btnCheck{
-    margin: 5px;
+    margin-left: 5px;
     fill: white;
     background-color: none;
   }
 
   .btnDelete{
-    margin: 5px;
+    margin-left: 5px;
     fill: white;
     background-color: none;
   }
@@ -78,9 +76,8 @@
   .soloTweet {
     border: 0.5px solid rgb(255, 255, 255, 0.3);
     color: white;
-    width: 80%;
+    width: 95%;
     align-self: center;
     height: 20%;
     margin: 7%;
-    padding: 2%;
   }
