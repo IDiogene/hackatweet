@@ -153,10 +153,8 @@
 }
 
 .hashtag {
-  background-color: rgb(74, 0, 43);
-  color: rgb(164, 164, 255);
-  border: solid 1px blanchedalmond;
-  border-radius: 20px;
+  background-color: #1d2732;
+  color: white;
   padding: 5px;
   width: 85%;
   height: 40px;

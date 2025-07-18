@@ -35,38 +35,37 @@
   }
 
   .divLikeCount{
-
     display: flex;
     align-items: center;
   }
 
   .btnLike{
     fill: white;
-    margin-top: 2px;
     margin-left: 20px;
     background-color: none;
   }
   
   .divBtnModify{
+    margin-left: 10px;
     display: flex;
     align-items: center;
 
   }
   
   .btnModify{
-    margin-left: 10px;
+    margin-left: 5px;
     fill: white;
     background-color: none;
   }
   
   .btnCheck{
-    margin-left: 10px;
+    margin-left: 5px;
     fill: white;
     background-color: none;
   }
 
   .btnDelete{
-    margin-left: 10px;
+    margin-left: 15px;
     fill: white;
     background-color: none;
   }
