@@ -6,15 +6,17 @@ import { useEffect, useState } from "react";
 
 function Home() {
   const [tweetsData, setTweetsData] = useState([]);
+  
 
   useEffect(() => {
     fetch("http://localhost:3000/tweet/")
       .then((response) => response.json())
       .then((data) => {
         setTweetsData(data.tweets);
-        console.log(data);
       });
   }, []);
+
+
 
   return (
     <div className={styles.body}>

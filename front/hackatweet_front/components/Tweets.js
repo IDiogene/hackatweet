@@ -12,9 +12,36 @@ const url = 'http://localhost:3000/users'
 
 const Tweets = ({index, author, username, date, TweetText, id }) => {
   const dispatch = useDispatch();
+  
 
   const [usernameConnected, setUsernameConnected] = useState(username);
+  const [tweetLikedby, setTweetLikedby ] = useState([]);
 
+
+  // const handleLike = async() => {
+  //   useEffect(() => {
+  //   fetch("http://localhost:3000/tweet/")
+  //   .then((response) => response.json())
+  //   .then((data) => {
+  //     setTweetLikedby(data.username)
+  //   }) 
+  // }); }
+
+ const handleLike = async() => {
+        const resp = await fetch(`http://localhost:3000/tweet/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: username,
+            }),
+        });
+        const data = await resp.json();
+        console.log(data);
+          // setTweetLikedby(username);
+        }
+ 
 
   const deleteTweet = async() => {
     const resp = await fetch(`http://localhost:3000/tweet/delete`, {
@@ -46,6 +73,7 @@ const Tweets = ({index, author, username, date, TweetText, id }) => {
         <h3 className={styles.date}>{date}</h3>
       </div>
       <p className={styles.TweetText}>{TweetText}</p>
+      <button className={styles.btnLike} onClick={() => handleLike()}>Lovilove</button>
       {
         (user.username === usernameConnected)? <button onClick={() => deleteTweet()}>Pouet</button> : null
       }
