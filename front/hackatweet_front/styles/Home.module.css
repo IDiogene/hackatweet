@@ -43,16 +43,11 @@
   flex-direction: column;
 }
 
-.containerTweets {
-  display: flex;
-  flex-direction: column;
-}
-
-/* .nameUsernameDate {
+.nameUsernameDate {
   display: flex;
   flex-direction: row;
   align-items: center;
-} */
+}
 
 /* .Avatar {
   border-radius: 50px;
@@ -196,4 +191,69 @@
   overflow: hidden;
   border-radius: 10px;
   resize: vertical;
+}
+
+.partRight{
+  display: flex;
+  flex-direction: column;
+}
+
+.hashtag {
+  background-color: rgb(74, 0, 43);
+  color: rgb(164, 164, 255);
+  border: solid 1px blanchedalmond;
+  border-radius: 5px;
+  padding: 5px;
+  width: 200px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  font-size: large;
+  font-weight: 900;
+  box-shadow: 10px 10px 10px rgb(0, 0, 0);
+  transition: 0.25s;
+}
+
+.hashtag:hover {
+  background-color: rgb(164, 164, 255);
+  color: rgb(74, 0, 43);
+  cursor: pointer;
+  scale: 0.95;
+  box-shadow: 0px 0px 0px rgb(0, 0, 0);
+}
+
+.searchInput {
+  width: 80%;
+  height: 5%;
+  background-color: #710000;
+  color: rgb(255, 255, 255);
+  border-radius: 20px;
+  padding: 5px;
+  box-shadow: 10px 10px 10px rgb(0, 0, 0);
+  transition: 0.25s;
+}
+
+.searchInput:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(74, 0, 43);
+  cursor: pointer;
+  scale: 0.95;
+  box-shadow: 0px 0px 0px rgb(0, 0, 0);
+}
+
+.searchInput:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px rgb(0, 0, 0);
+}
+
+.containerTweets {
+
+  margin-top: 25px;
+  width: 100%;  
+  top: 30%;   
+  height: 80vh;       
+  overflow: auto;    
+  border: 1px solid #ccc;
 }
