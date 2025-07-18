@@ -9,7 +9,8 @@ const url = 'http://localhost:3000/tweet'
 
 function Home() {
   const [tweetsData, setTweetsData] = useState([]);
-  const [newTweet, setNewTweet] = useState("");
+  const [newTweet, setNewTweet] = useState("");  
+
   const user = useSelector((state) => state.user); 
 
 
@@ -35,13 +36,8 @@ function Home() {
       .then((response) => response.json())
       .then((data) => {
         setTweetsData(data.tweets);
-        console.log(data);
       });
-  }
-    
-  useEffect(() => {
-    fetchTweet()
-  }, [])
+  }, []);
 
   return (
     
