@@ -20,8 +20,10 @@ const Tweets = ({index, author, username, date, TweetText, id, maj, like }) => {
   
 
   const [usernameConnected, setUsernameConnected] = useState(username);
-  
-
+  const dateFormated = () => {
+    const newDate = new Date(date)
+    return `à tweeté le : ${newDate.getDate()}/${newDate.getMonth()+1}/${newDate.getFullYear()}`
+  }
 
 
  const handleLike = async() => {
@@ -93,7 +95,7 @@ const Tweets = ({index, author, username, date, TweetText, id, maj, like }) => {
         />
         <h1 className={styles.authorName}>{author} :</h1>
         <h2 className={styles.username}> {username}</h2>
-        <h3 className={styles.date}>{date}</h3>
+        <h3 className={styles.date}>{dateFormated()}</h3>
       </div>
       {modify ? <textarea name="" id="" onChange={(e) => setText(e.target.value)}>{text}</textarea> : <p className={styles.TweetText}>{TweetText}</p>}
       
@@ -101,8 +103,8 @@ const Tweets = ({index, author, username, date, TweetText, id, maj, like }) => {
       <LikeIcon
         src="/heart-solid.png"
         alt="Like"
-        width={15}
-        height={15}
+        width={20}
+        height={20}
         className={styles.btnLike}
         onClick={() => handleLike()}
         style={like.find(user => user === myUsername) ? {fill:'red'} : null}
@@ -115,15 +117,15 @@ const Tweets = ({index, author, username, date, TweetText, id, maj, like }) => {
      <CheckIcon 
      src="/check-solid.svg"
         alt="CheckText"
-        width={17}
-        height={17}
+        width={24}
+        height={24}
      className={styles.btnCheck}
      /> : 
       <ModifyIcon 
         src="/gears-solid.svg"
         alt="ModifyText"
-        width={17}
-        height={18}
+        width={24}
+        height={25}
         className={styles.btnModify}
         onClick={() => setModify(!modify)}
 

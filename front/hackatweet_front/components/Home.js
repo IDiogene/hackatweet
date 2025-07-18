@@ -45,17 +45,21 @@ function Home() {
       });
   };
 
-  useEffect(() => {
-    fetchTweet()
-  }, [])
 
   useEffect(() => {
     setHashtag(tweetsData
         .map((tweet => tweet.TweetText.match(hashtagPatern) ? tweet.TweetText.match(hashtagPatern) : null))
         .filter(match => match !== null)
       )
-    console.log(hashtag)
+       const intervalId = setInterval(() => {
+          fetchTweet()
+          console.log('interval')
+          }, 1000);
+
+        return () => clearInterval(intervalId);   
   }, [tweetsData])
+
+
 
 
   return (
@@ -88,9 +92,10 @@ function Home() {
               </div>
               <div className={styles.CountCaract} style={{ color:"white"}}>{newTweet.length}/280</div>
                <p style={{color: "white", display:"flex", justifyContent:'center'}}>Tweet</p>
+               
           <div className={styles.containerTweets}>
            
-            {tweetsData.map((tweet, index) => {
+            {[...tweetsData].reverse().map((tweet, index) => {
               if (
                 tweet.username.match(searchPatern) || 
                 tweet.TweetText.match(searchPatern) ||
