@@ -48,10 +48,14 @@ function Home() {
 
 
   useEffect(() => {
-    setHashtag(tweetsData
-        .map((tweet => tweet.TweetText.match(hashtagPatern) ? tweet.TweetText.match(hashtagPatern) : null))
-        .filter(match => match !== null)
-      )
+    const allHashtags = tweetsData
+      .map(tweet => tweet.TweetText.match(hashtagPatern)) 
+      .filter(match => match !== null)                    
+      .flat();                                            
+      const uniqueHashtags = [...new Set(allHashtags)];     
+
+      setHashtag(uniqueHashtags);
+      
        const intervalId = setInterval(() => {
           fetchTweet()
 
@@ -100,6 +104,7 @@ function Home() {
               if (
                 tweet.username.match(searchPatern) || 
                 tweet.TweetText.match(searchPatern) ||
+                tweet.author.match(searchPatern) ||
                 search === ''            
               ) {
               return <Tweets
